@@ -1,0 +1,5 @@
+require("config.remap")
+require("config.comment")
+require("config.null-ls")
+require("config.nvim-tree")
+require("config.autopairs")
