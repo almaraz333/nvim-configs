@@ -1,7 +1,28 @@
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
-vim.keymap.set('n', '<leader>ps', function()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") });
-end)
+local actions = require("telescope.actions")
 
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>gf",
+	'<cmd>lua require("telescope.builtin").git_files()<cr>',
+	{ noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>ff",
+	'<cmd>lua require("telescope.builtin").find_files()<cr>',
+	{ noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>fg",
+	'<cmd>lua require("telescope.builtin").live_grep()<cr>',
+	{ noremap = true, silent = true }
+)
+
+require("telescope").setup({
+	defaults = {
+		file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+	},
+})
