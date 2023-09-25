@@ -25,7 +25,12 @@ vim.cmd([[
 
 return require("packer").startup(function(use)
 	-- Packer can manage itself
-	use("wbthomason/packer.nvim")
+	use({
+		"williamboman/mason.nvim",
+		dependencies = {
+			"williamboman/mason-lspconfig",
+		},
+	})
 
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -57,6 +62,18 @@ return require("packer").startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 	use("nvim-tree/nvim-web-devicons")
 	use("github/copilot.vim")
+	use("stevearc/dressing.nvim")
+
+	use({
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
+			"rafamadriz/friendly-snippets",
+		},
+	})
 
 	use({
 		"VonHeikemen/lsp-zero.nvim",
