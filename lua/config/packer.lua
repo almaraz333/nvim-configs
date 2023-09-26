@@ -46,6 +46,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- use 'hrsh7th/nvim-compe'
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 	use("romgrk/barbar.nvim")
 	use("nvim-treesitter/playground")
@@ -67,13 +68,15 @@ return require("packer").startup(function(use)
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip",
-			"rafamadriz/friendly-snippets",
-		},
-	})
+		  "hrsh7th/cmp-nvim-lsp",     
+		  "hrsh7th/cmp-buffer",       -- Buffer source for nvim-cmp
+		  "hrsh7th/cmp-path",         -- Filesystem/path source
+		  "L3MON4D3/LuaSnip",         -- Snippet manager and provider
+		  "saadparwaiz1/cmp_luasnip", -- Luasnip source for nvim-cmp
+		  "rafamadriz/friendly-snippets" -- Collection of snippets
+		}
+	  })
+	  
 
 	use({
 		"VonHeikemen/lsp-zero.nvim",

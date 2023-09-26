@@ -21,9 +21,10 @@ cmp.setup({
 		["C-b"] = cmp.mapping.scroll_docs(4),
 	}),
 
-	sources = cmp.config.sources({
-		{ name = "luasnip" },
-		{ name = "buffer" },
-		{ name = "path" },
-	}),
+	sources = {
+		{ name = 'nvim_lsp' },
+		{ name = 'buffer' },
+		{ name = 'path' },
+		{ name = 'luasnip' },
+	  },
 })
