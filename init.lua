@@ -9,9 +9,8 @@ vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap 
 
 -- Lazygit
 function Open_lazygit()
-	vim.cmd("!tmux split-window -h")
-	vim.cmd("!tmux select-pane -R")
-	vim.cmd("!tmux send-keys 'lazygit' Enter")
+	local cmd = "tmux split-window -h 'lazygit'"
+	vim.cmd("! " .. cmd)
 end
 
-vim.api.nvim_set_keymap("n", "<leader>lg", ':lua Open_lazygit()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>lg", ":lua Open_lazygit()<CR>", { noremap = true, silent = true })
