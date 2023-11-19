@@ -31,6 +31,14 @@ return require("packer").startup(function(use)
 	})
 
 	use({
+		"kdheepak/lazygit.nvim",
+		-- optional for floating window border decoration
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	})
+
+	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.2",
 		-- or                            , branch = '0.1.x',
